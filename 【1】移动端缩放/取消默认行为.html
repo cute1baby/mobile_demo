@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#outer{
+		width: 200px;
+		height: 300px;
+		background: red;
+	}
+	#inner{
+		width: 100px;
+		height: 200px;
+		background: #999;
+	}
+</style>
+<body>
+<!-- 禁止在outer取消默认行为 
+	inner保持默认行为
+-->
+<div id="outer">
+outerouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouterouter
+	<div id="inner">
+		innerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinnerinner
+	</div>
+</div>
+<script>
+	var outer = document.getElementById('outer');
+	var inner = document.getElementById('inner');
+	outer.addEventListener('touchstart',function(ev){
+		ev.preventDefault();
+		console.log(111);
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+/* 
+absolute:相对于视口相对于初始包含块进行定位。
+如果有父级元素，父级元素开启定位，参照父级定位。
+没有父级元素，参照初始包含块(也就是视窗大小的矩形)。
+left,top,right,bottom默认都是auto.
+left:0;是初始包含块到视口左边的距离。
+
+relative:父元素内容边界。
+left,top,right,bottom默认都是auto也就是0.
+left:基于我元素自身位置来计算(与包含块无关);
+
+ */
+*{margin:0;padding:0;}
+#wrap{height:100%;}
+#inner{width:100%;background: red;position: absolute;}
+</style>
+<body>
+<div id="wrap">
+	<div id="inner">
+		qfwghyjuiouytrewdsdeghjjkefgfgfdfwergtrefedrfedfdgrtgthregt
+	</div>
+</div>
+<script>
+var wrap = document.getElementById('wrap');
+wrap.addEventListener('touchstart',function(ev){
+	var touch = ev.changedTouches[0];
+	console.log(touch);
+})
+
+wrap.addEventListener('touchmove',function(ev){
+	var touch = ev.changedTouches[0];
+	console.log(touch);
+})
+</script>
+</body>
+</html>

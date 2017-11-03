@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	#box{
+		width: 160px;
+		height: 160px;
+		background: red;
+	}
+</style>
+<body>
+<!-- 假设UI给一张设计图：宽度是320px,但是手机最小的都是375.要使320的设计图能占据全屏幕的宽度，需要做一个缩放。
+原理就是布局视图的缩放原理：显示的始终是宽度的一半。
+ -->
+<div id="box">
+	
+</div>
+<script>
+var targetW = 320;  //
+var width =document.documentElement.clientWidth;
+var scale = width/targetW;
+//获取meta标签
+var metaNode = document.querySelector('meta[name="viewport"]');
+metaNode.setAttribute('name','viewport');
+metaNode.setAttribute('content','initial-scale='+scale);
+document.body.appendChild(metaNode);
+</script>	
+</body>
+</html>

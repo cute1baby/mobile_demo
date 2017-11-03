@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+/* 原理：absolute的块是浮动起来的，脱离文档流的。此时的滚动条是body的，完全跟我们的这个body没有任何关系，absolute是以初始包含块为基准定位的，相当于是视口，而body对应的矩形区域并不是初始包含块，所以这个时候的滚动完全不会跟着滚动。 */
+*{margin: 0;padding: 0;}
+html{
+	height: 100%;border: 1px solid blue;overflow: hidden;
+}
+body{
+	height: 100%;border: 1px solid red;overflow: scroll;
+}
+#wrap{
+	position: absolute;left: 100px;top: 100px;
+	background: green;
+}
+/* 1、档body和html豆油overflow：scroll的时候那么此时的document和body都会有滚动条出现。
+2、如果把html上面的滚动条去掉,留下body的，那么此时的滚动条显示在body上。
+3、如果把body上面的滚动条去掉,留下html的，那么此时的滚动条显示在document上。
+
+4、如果把html,body都设置为height是100%,那么此时的body和html是重合的。 */
+</style>
+<body > 
+	<div id="wrap">
+		<div id="inner">
+			dfghjkjtrergnbt
+		</div>
+	</div>
+	<div style="height:4000px;width:100%;background:pink;"></div>
+</body>
+</html>

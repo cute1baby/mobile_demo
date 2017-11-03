@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+</head>
+<style>
+/* 思路：
+针对于px为单位的边框,只是缩小对应dpr的尺寸。
+针对于rem单位的块级元素,让根元素html设置为 【屏幕宽度/16】,但是明显此时会因为此时的initial-scale而影响,所以根元素html=【屏幕宽度/16 *dpr】 */
+*{margin: 0;padding: 0;}
+#box{width:8rem;height: 8rem;border: 1px solid red;}
+</style>
+<body>
+<div id="box"></div>	
+<script>
+var dpr = window.devicePixelRatio || 1;
+var widthNode = document.documentElement.clientWidth/16 *dpr;
+var scale = 1/dpr;
+var metaNode = document.querySelector('meta[name="viewport"]');
+metaNode.setAttribute('content','initial-scale='+scale);
+var styleNode = document.createElement('style');
+styleNode.innerHTML='html{font-size:'+ widthNode +'px !important}';
+document.head.appendChild(styleNode);
+</script>
+</body>
+</html>

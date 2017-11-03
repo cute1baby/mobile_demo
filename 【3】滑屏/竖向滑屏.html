@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<body>
+<style>
+*{margin:0;padding:0;}
+*{touch-action:none;}
+/* 外层写死撑开 */
+#wrap{height:100%;}
+#inner{width:100%;position:absolute;background: yellow;}
+</style>
+<div id="wrap">
+	<div id="inner">
+		文本
+	</div>
+</div>
+<script>
+document.addEventListener('touchstart',function(ev){
+	ev.preventDefault();
+})
+var wrap = document.getElementById('wrap');
+var inner = document.getElementById('inner');
+
+//文本
+var text = '';
+for(var i=0;i<300;i++){
+	text +=(i)+'<br/>';
+}
+inner.innerHTML = text;
+var startY = 0;
+var elementY = 0;
+
+//移动端滑屏模板
+wrap.addEventListener('touchstart',function(ev){
+	var touch = ev.changedTouches[0];
+	startY = ev.changedTouches[0].clientY;
+	elementY = inner.offsetTop;
+
+});
+wrap.addEventListener('touchmove',function(ev){
+	var touch = ev.changedTouches[0];
+	nowY = ev.changedTouches[0].clientY;
+
+	var top = elementY +nowY -startY;
+	/*临界值*/
+	if(top >0){
+		top = 0;
+	}else if(top < document.documentElement.clientHeight - inner.offsetHeight){
+		//值为负数
+		top = document.documentElement.clientHeight - inner.offsetHeight;
+	}
+	inner.style.top = top+'px';
+
+
+});
+</script>	
+</body>
+</html>

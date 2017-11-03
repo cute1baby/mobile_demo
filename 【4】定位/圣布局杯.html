@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+/* 父级设置padding:0 200px;然后中间的middle设置width为100%的宽度。 */
+*{margin: 0;padding: 0;}
+body{min-width:600px;}/* 2left+right */
+#wrap{overflow: hidden;padding: 0 200px;}
+#con{background: green;width: 100%;/* padding: 0 200px; */padding-bottom: 10000px;margin-bottom: -10000px;float: left;}
+#left,#right{width: 200px;background: yellow;float: left;}
+#left{margin-left:-100%;padding-bottom: 10000px;margin-bottom: -10000px;position: relative;left: -200px;}
+#right{margin-left: -200px;padding-bottom: 10000px;margin-bottom: -10000px;position: relative;right: -200px;}
+
+
+
+
+#wrap1{overflow: hidden;width: 600px}
+#left1,#right1{
+	width: 300px;
+	float: left;
+}
+#left1{
+	background: green;
+	padding-bottom: 1000px;
+}
+#right1{
+	background: yellow;
+	padding-bottom: 1000px;
+}
+</style>
+<!-- 等高的办法 -->
+<body>
+<div id="wrap">
+	<div id="con">
+		con
+	</div>
+	<div id="left">
+		left你们说得偶的呢的本领充电呢金卡办事处圣诞节接口比上次都是科技部IC本地vfbbl1ionckl'此刻的你发你、1大润发
+	</div>
+	<div id="right">
+		rightegtrhyj
+	</div>
+</div>
+<br><br><br><br><br><hr><br><br><br>
+<div id="wrap1">
+	<div id="left1">
+		left1
+	</div>
+	<div id="right1">
+		right1left
+
+		使用padding-bottom增加底部的高度，但是实质上高度还是没有齐平，不然我们看下面的例子就很容易看出来,然后我们使用margin-bottom为负值得时候就能裁剪掉超出父级包裹的部分，同时使用overflow：hidden清除浮动和裁剪掉多余的部分。这样我们就看到了所谓的伪等高的效果。
+
+		并且这里有一个比较需要注意的部分是：
+		最外层父级需要设置padding值，而中间层设置width为100%,并且设置的时候需要是先middle,然后left和right.
+	</div>
+</div>
+</body>
+</html>	

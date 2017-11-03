@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+node.onmousedown = function(){
+	node.setCapture && node.setCapture();  //进行全局捕获
+	document.onmousemove = function(){
+
+	}
+	document.onmouseup = function(){
+		document.onmousemove = document.onmouseup = null;
+		document.releaseCapture && document.releaseCapture(); //清除全局捕获
+	}
+	return false;
+}
+</script>
+</body>
+</html>

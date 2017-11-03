@@ -1,0 +1,4 @@
+1、考虑document，html和body
+(1)html,body只有一个有overflow属性的时候,这个属性会传给document(也就是html的上一层).
+(2)html，body都存在overflow属性的时候,body的overflow属性才能生效。
+(3)档html，body都存在overflow属性的时候,body的overflow属性一直都会作用在body身上。html的overflow属性一直会作用在document上面。

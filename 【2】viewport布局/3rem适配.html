@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+#box{
+	width:0.5rem;
+	height: 200px;
+	background:red;
+}
+</style>
+<body>
+<div id="box">
+	
+</div>
+<script>
+//简易的适配
+(function(){
+	var newNode = document.createElement('style');
+	var width = document.documentElement.clientWidth;
+	newNode.innerHTML = 'html{font-size:'+width/16+'px !important;}'
+	document.body.appendChild(newNode);
+})()
+
+</script>
+</body>
+</html>

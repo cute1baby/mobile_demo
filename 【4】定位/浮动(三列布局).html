@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+/* 浮动是解决文字环绕图片效果的 */
+
+/* middle，right调换位置。
+有多余内容时候布局发生错乱不利于扩展。 */
+*{margin: 0;padding:0;}
+body{min-width: 600px;}
+#left,#right{
+	width:200px;height: 200px;background: green;
+}
+#left{float:left;}
+#right{float: right;}
+#middle{height: 200px;background: yellow;}
+.clearFix:after{
+	content: "";display: block;clear: both;
+}
+.clearFix{zoom:1;}  /* 解决IE6,7,8 */
+</style>
+<body class="clearFix">
+<div id="left">
+	left
+</div>
+<div id="right">
+	right
+</div>
+<div id="middle">
+	middle
+</div>
+</body>
+</html>
