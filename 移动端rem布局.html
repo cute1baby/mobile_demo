@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<title>Document</title>
+</head>
+<style>
+*{margin:0;padding: 0;}
+html,body{width:100%;}
+#header{width: 7.5rem;height: 50px;background: red;position: fixed;top: 0px;}
+#orange{width: 0.5rem;height: 1.0rem;background:orange;}	
+#container{
+	margin-top: 50px;
+	width: 7.5rem;
+	height: 400px;
+	background: gray;
+}
+#footer{
+	width: 7.5rem;
+	height: 50px;
+	background: blue;
+	position: fixed;bottom: 0px;
+}
+</style>
+<body>
+<div id="app">
+	<div id="header">
+		
+	</div>
+	<div id="container">
+		<div id="orange"></div>
+	</div>
+	<div id="footer">
+
+	</div>
+</div>
+<script>
+/*
+	背景:我现在领取到一张宽度是750px的设计稿，现在header部分有一个div宽度是50px,高度是100px.现在需要我做一个移动端的适配,并且这样设置.
+	检测准确性:可以在css宽度是375px的屏幕下检测。
+	最大的宽度是：7.5rem,50px的宽度是0.5rem,100px高度是1.0rem.
+*/	
+var dpr = window.devicePixelRatio || 1;
+var windowWidth = document.documentElement.clientWidth;
+var scale = 1/dpr;
+var fontSize = windowWidth/750 *dpr*100;  
+var metaView = document.querySelector('meta[name="viewport"]');
+metaView.setAttribute('content','width=device-width;initial-scale='+scale);
+var styleNode = document.createElement('style');
+styleNode.innerHTML='html{font-size:'+fontSize+'px !important;}';
+document.head.appendChild(styleNode);
+</script>
+</body>
+</html>
