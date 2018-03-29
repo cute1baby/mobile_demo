@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,minimum-scale=0.5,user-scalable=no"/> -->
+	<title>Document</title>
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	font-size: 100px;
+}
+#header{
+	width: 7.50rem;
+	height: 80px;
+	background:blue;
+	color:#fff;
+	font-size:24px;
+	line-height:80px;
+	height: 80px;
+	text-align:center;
+}
+#main{
+	overflow: hidden;
+	text-align:center;
+	color: #fff;
+}
+#main .left{
+	float: left;
+	width: 3.75rem;
+	height: 1000px;
+	line-height: 1000px;
+	background: green;
+}
+#main .right{
+	float: left;
+	width: 3.75rem;
+	height: 1300px;
+	line-height: 1300px;
+	background: yellow;
+}
+#footer{
+	width: 7.50rem;
+	height: 50px;
+	background: #000;
+	line-height: 50px;
+	color: #fff;
+	font-size: 24px;
+}
+</style>
+<body>
+<div id="app">
+	<div id="header">
+		header
+	</div>
+	<div id="main">
+		<div class="left">
+			left
+		</div>
+		<div class="right">
+			right
+		</div>
+	</div>
+	<div id="footer">
+		footer
+	</div>
+</div>
+<!-- 这里需要注意的几点是：
+1、在头部先不要写meta标签。
+2、createElement一个meta标签，然后再在这个标签上面添加一些属性。
+3、这里最重要的是设置initial-scale的值,然后将meta标签插入到文档中。 -->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+/*我们假设给出的设计图纸是750px,而我们布局的时候是按照750px的图纸来做的。当切换不同手机宽度分辨率的手机的时候此时需要有一个缩放比例*/
+$(function(){
+	var targetWidth = 750
+	// 不能用clientWidth，因为此时还没有使用meta标签限制宽度，拿到的宽度是980px.
+	// var clientWidth = document.documentElement.clientWidth
+	// 此时使用screen.width去获取屏幕的宽度，拿到当前宽度值才是屏幕真实的宽度。
+	var width =screen.width;
+	// 而这个缩放的比例是当前的屏幕相对于750来说的值，【比如说当前的是375所以是扩大0.5倍】
+	var scale = width / targetWidth
+	var metaNode = document.createElement('meta')
+	metaNode.setAttribute('name','viewport')
+	metaNode.setAttribute('content','width=device-width,initial-scale='+scale)
+	document.body.appendChild(metaNode)
+})
+</script>
+</body>
+</html>

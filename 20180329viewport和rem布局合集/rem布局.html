@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,minimum-scale=0.5,user-scalable=no"/>
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#header{
+		width: 16rem;
+		height: 80px;
+		background:blue;
+		color:#fff;
+		font-size:24px;
+		line-height:80px;
+		height: 80px;
+		text-align:center;
+	}
+	#main{
+		overflow: hidden;
+		text-align:center;
+		color: #fff;
+	}
+	#main .left{
+		float: left;
+		width: 6rem;
+		height: 1000px;
+		line-height: 1000px;
+		background: green;
+	}
+	#main .right{
+		float: left;
+		width: 10rem;
+		height: 1300px;
+		line-height: 1300px;
+		background: yellow;
+	}
+	#footer{
+		width: 16rem;
+		height: 50px;
+		background: #000;
+		line-height: 50px;
+		color: #fff;
+		font-size: 24px;
+	}
+</style>
+<body>
+<div id="app">
+	<div id="header">
+		header
+	</div>
+	<div id="main">
+		<div class="left">
+			left
+		</div>
+		<div class="right">
+			right
+		</div>
+	</div>
+	<div id="footer">
+		footer
+	</div>
+</div>
+<!-- 疑问：
+1、把一个网页宽度分成16等份，然后按照设计稿的比例来算每一份占据多少比例.
+2、创建一个style标签，并且设置根目录的fontSize相对于宽度的1/16得到的值，然后插入到文档中。 -->
+<script>
+var clientWidth = document.documentElement.clientWidth;
+var styleNode = document.createElement('style');
+styleNode.innerHTML = 'html{font-size:'+ clientWidth / 16 + 'px !important;}';
+document.body.appendChild(styleNode);
+</script>
+</body>
+</html>
