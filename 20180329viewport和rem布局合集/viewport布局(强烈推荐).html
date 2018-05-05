@@ -76,6 +76,7 @@ html,body{
 <script>
 /*我们假设给出的设计图纸是750px,而我们布局的时候是按照750px的图纸来做的。当切换不同手机宽度分辨率的手机的时候此时需要有一个缩放比例*/
 $(function(){
+	// 记住宽度和高度都要参照750图纸使用rem作为单位进行布局，在这个例子中因为所认为的dpr都是等于2（即二倍图），所以没有所谓的高清屏说法。
 	var targetWidth = 750
 	// 不能用clientWidth，因为此时还没有使用meta标签限制宽度，拿到的宽度是980px.
 	// var clientWidth = document.documentElement.clientWidth
